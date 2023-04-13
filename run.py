@@ -1,8 +1,10 @@
 import os
+from taskmanager import app
 
-os.environ.setdefault("IP", "0.0.0.0")
-os.environ.setdefault("PORT", "5000")
-os.environ.setdefault("SECRET_KEY", "any_secret_key")
-os.environ.setdefault("DEBUG", "True")
-os.environ.setdefault("DEVELOPMENT", "True")
-os.environ.setdefault("DB_URL", "postgresql:///taskmanager")
+
+if __name__ == "__main__":
+    app.run(
+        host=os.environ.get("IP"),
+        port=int(os.environ.get("PORT")),
+        debug=os.environ.get("DEBUG")
+    )
